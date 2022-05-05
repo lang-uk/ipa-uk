@@ -1,44 +1,48 @@
 """
-That module provides a python implementation of the IPA phonemisation algorithm, found
-on wiktionary (https://uk.wiktionary.org/wiki/Модуль:uk-pron) 
+This module provides a Python implementation of the IPA phonetic transcription algorithm found
+on Wiktionary (https://uk.wiktionary.org/wiki/Модуль:uk-pron)
 
-Original code also has a comment on the input words:
-Дифонемні послідовності приголосних, що передають один звук, повинні бути записані з
-другим додатковим елементом: дж → джж: віджи́лій → віджжи́лий дз → ДЗЗ: підзе́мний → підззе́мній
+The module exposes one function `ipa` and two constants, `ACUTE` and `GRAVE`, so you can
+add stresses to the words like this: f"Украї{acute}ні"
 
-The module exposes one function `ipa` and two constants, `acute` and `grave` so you can
-add stresses to the words like this f"Украї{acute}ні"
+Where the дж/дз sequences denote two separate sounds instead of a single one, please indicate this by doubling
+the second letter: pass віджжи́лий instead of віджи́лий, підззе́мний instead of підзе́мний, etc.
 """
 
 import re
 
-acute = chr(0x301)
-grave = chr(0x300)
+__all__ = [
+    'ACUTE',
+    'GRAVE',
+    'ipa',
+]
+
+ACUTE = chr(0x301)
+GRAVE = chr(0x300)
 
 
-class AccentIsMissing(Exception):
+class AccentIsMissing(ValueError):
     pass
 
 
-def ipa(word: str, accent: bool) -> str:
+def ipa(text: str, check_accent: bool) -> str:
     """
-    Returns the IPA transcription of the given word or sentence according to the wiktionary algorithm
+    Returns the IPA transcription of the given word or sentence according to the Wiktionary algorithm
 
     Parameters:
-        word (str): the word or the sentence to transcribe
-        accent (bool): enable mandatory verification for at least one stressed syllable
+        text (str): the word or the sentence to transcribe
+        check_accent (bool): enable mandatory verification for at least one stressed syllable
     Returns:
-        phonetic (str): phonemised string
+        phonetic (str): phonetic transcription
     """
-    word = word.lower()
+    text = text.lower()
 
-    needs_accent: bool = False
-
-    if accent:
-        if acute not in word and grave not in word:
-            if len(re.findall(r"[аеєиіїоуюя]", word)) > 1:
+    if check_accent:
+        if ACUTE not in text and GRAVE not in text:
+            if len(re.findall(r"[аеєиіїоуюя]", text)) > 1:
                 raise AccentIsMissing(
-                    f"The provided word is missing an accent (and has more than one syllable). Set accent=False to disable that check"
+                    f"The provided text is missing an accent (and has more than one syllable). "
+                    f"Set check_accent=False to disable that check"
                 )
 
     palatalizable: str = r"[tdsznlrbpʋfɡmkɦxʃʒ]"
@@ -47,17 +51,19 @@ def ipa(word: str, accent: bool) -> str:
     consonant: str = r"[bdzʒɡɦmnlrpftskxʃʋ]"
 
     phonetic_chars_map: list[dict[str, str]] = [
-        #  последовательность трёх символов, которая переводится в звуки МФА
+        # 3-character sequences:
         {
             "дзь": "d͡zʲ",
-            #  Dental plosives assimilate to following hissing/hushing consonants, which is not noted in the spelling.
+            # dental plosives assimilate to the following hissing/hushing consonants,
+            # which is not reflected in the spelling
             "тьс": "t͡sʲː",
         },
-        #  последовательность двух символов, которая переводится в звуки МФА
+        # 2-character sequences:
         {
             "дж": "d͡ʒ",
             "дз": "d͡z",
-            #  Dental plosives assimilate to following hissing/hushing consonants, which is not noted in the spelling.
+            # dental plosives assimilate to the following hissing/hushing consonants,
+            # which is not reflected in the spelling
             "дс": "d͡zs",
             "дш": "d͡ʒʃ",
             "дч": "d͡ʒt͡ʃ",
@@ -67,7 +73,7 @@ def ipa(word: str, accent: bool) -> str:
             "тч": "t͡ʃː",
             "тц": "t͡sː",
         },
-        #  отдельные символы, которые переводятся в звуки МФА; они обрабатываются последними
+        # single characters:
         {
             "а": "ɑ",
             "б": "b",
@@ -103,39 +109,38 @@ def ipa(word: str, accent: bool) -> str:
             "ю": "ju",
             "я": "jɑ",
             "’": "j",
-            #  ударные гласные
-            acute: "ˈ",
-            grave: "ˈ",
+            # stress marks:
+            ACUTE: "ˈ",
+            GRAVE: "ˈ",
         },
     ]
     orthographic_replacements: dict = {
-        # first apply consonant cluster simplifications that always occur orthographically
+        # first apply consonant cluster simplifications that always occur orthographically:
         r"нтськ": "ньськ",
         r"стськ": "ськ",
         r"нтст": "нст",
         r"стч": "шч",
         r"стд": "зд",
         r"стс": "сː",
-        r"стськ": "ськ",
         r"^зш": "шː",
         r"зш": "жш",
         r"^зч": "шч",
         r"зч": "жч",
-        # then long consonants that are orthographically geminated.
-        r"([бвгґд])\1": r"\1ː",  # TODO: correct replacements
-        r"([^д]+)жж": r"\1жː",  # джж последовательность кодирует дифонический дж
-        r"([^д]+)зз": r"\1зː",  # дзз последовательность кодирует дифонический дз
+        # then long consonants that are orthographically geminated:
+        r"([бвгґд])\1": r"\1ː",
+        r"([^д]+)жж": r"\1жː",  # джж denotes non-affricate дж
+        r"([^д]+)зз": r"\1зː",  # дзз denotes non-affricate дз
         r"([йклмнпрстфхцчшщ])\1": r"\1ː",
         r"дждж": r"джː",
         r"дздз": r"дзː",
     }
 
-    phonetic: str = word
+    phonetic: str = text
 
     for regex, replacement in orthographic_replacements.items():
         phonetic = re.sub(regex, replacement, phonetic)
 
-    # переназначение апострофа на '!', чтобы не противоречило ударной отметке МФА
+    # so that the character is not mixed up with the IPA stress mark
     phonetic = phonetic.replace("'", "!")
 
     for replacements in phonetic_chars_map:
@@ -144,27 +149,27 @@ def ipa(word: str, accent: bool) -> str:
 
     phonetic = re.sub(r"([ɑɛiɪuɔ])ˈ", r"ˈ\1", phonetic)
 
-    # добавление ударения, если слово с одним слогом и без "|ударение=откл"
+    # including stress mark for single-syllable words if check_accent is set to true
     number_of_vowels = len(re.findall(r"[ɑɛiɪuɔ]", phonetic))
-
-    if number_of_vowels == 1 and accent:
+    if number_of_vowels == 1 and check_accent:
         phonetic = re.sub(r"([ɑɛiɪuɔ])", r"ˈ\1", phonetic)
 
     # palatalizable consonants before /i/ or /j/ become palatalized
     phonetic = re.sub(r"(" + palatalizable + ")([ː]?)([ˈ]?)i", r"\1ʲ\2\3i", phonetic)
     phonetic = re.sub(r"(" + palatalizable + ")([ː]?)j", r"\1ʲ\2", phonetic)
 
-    # eliminate garbage sequences of [ʲːj] resulting from -тьс- cluster followed by [j]
+    # eliminate garbage sequences of [ʲːj] resulting from the -тьс- cluster followed by [j]
     phonetic = re.sub(r"ʲːj", r"ʲː", phonetic)
 
-    # -- упрощение согласных: ст + ц' → [с'ц']. Мы создаём это из-за палатализации.
-    # -- Так как т +ц → [ц:] присутствует правило о долготе. Согласно «Орфоэпическому словарю» p. 13,
-    # -- обе формы правильные, без долготы в обычной (разговорной) речи и с долготой
-    # -- в медленной речи, поэтому мы заключаем в скобки долготу как опциональную.
+    # -- Simplifying consonants: ст + ц' → [с'ц']. needed due to the palatalization.
+    # -- There is also a rule т +ц → [цː]. According to «Орфоепічний словник», p. 13,
+    # -- both forms are valid, with no lengthening in colloquial speech and with lengthening
+    # -- in slow speech, hence ː is enclosed in brackets as optional.
     phonetic = re.sub(r"st͡sʲ([ː]?)", r"sʲt͡sʲ(\1)", phonetic)
 
-    # ассимиляция: глухой + звонкий = звонкий + звонкий
-    # должна ли /ʋ/ включаться как звонкая? «Орфоепічний словник» не озвучивает начальный кластер шв (p. 116)
+    # assimilation: voiceless + voiced = voiced + voiced
+    # should /ʋ/ be counted as voiced? According to «Орфоепічний словник»,
+    # the assimilation doesn't apply to an initial шв (p. 116)
     voicing: dict[str, str] = {
         "p": "b",
         "f": "v",
@@ -231,7 +236,7 @@ def ipa(word: str, accent: bool) -> str:
     phonetic = re.sub(r"(" + vowel + "+)ʋ", r"\1u̯", phonetic)
     # /ʋ/ has an allophone [w] before /ɔ, u/and voiced consonants (not after a vowel)
     phonetic = re.sub(r"ʋ([ˈ]?)([ɔuoʊbdzʒɡɦmnlr]+)", r"w\1\2", phonetic)
-    # /ʋ/ has an allophone [ʍ] before before voiceless consonants (not after a vowel)
+    # /ʋ/ has an allophone [ʍ] before voiceless consonants (not after a vowel)
     phonetic = re.sub(r"ʋ([pftskxʃ]+)", r"ʍ\1", phonetic)
 
     # in a syllable-final position (i.e. the first position of a syllable coda) /j/ has an allophone [i̯]:
@@ -242,7 +247,7 @@ def ipa(word: str, accent: bool) -> str:
 
     # remove old orthographic apostrophe
     phonetic = re.sub(r"!", "", phonetic)
-    # stress mark in correct place
+    # moving the stress mark to where it belongs
     phonetic = re.sub(r"([bdzʒɡɦjʲmnlrpftskxʃʋwʍː͡]+)ˈ", r"ˈ\1", phonetic)
     phonetic = re.sub(r"([ui]̯)ˈ([ʲ]?" + vowel + ")", r"ˈ\1\2", phonetic)
     phonetic = re.sub(r"ˈ(l[ʲ]?[ː]?)(" + re.sub(r"l", r"", consonant) + ")", r"\1ˈ\2", phonetic)
@@ -255,5 +260,5 @@ def ipa(word: str, accent: bool) -> str:
 
 
 if __name__ == "__main__":
-    for w in [f"Сла{acute}ва", f"Украї{acute}ні", f"сме{acute}рть", f"ворога{acute}м"]:
-        print(w, "->", ipa(w, accent=True))
+    for w in [f"Сла{ACUTE}ва", f"Украї{ACUTE}ні", f"сме{ACUTE}рть", f"ворога{ACUTE}м"]:
+        print(w, "->", ipa(w, check_accent=True))
