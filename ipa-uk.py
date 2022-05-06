@@ -12,6 +12,7 @@ the second letter: pass віджжи́лий instead of віджи́лий, пі
 import re
 
 __all__ = [
+    'AccentIsMissing',
     'ACUTE',
     'GRAVE',
     'ipa',
