@@ -190,7 +190,7 @@ def ipa(text: str, check_accent: bool) -> str:
     }
 
     for voiceless, voiced in voicing.items():
-        phonetic = re.sub(voiceless + "(" + voiced_obstruent + "+)", voiced + "\1", phonetic)
+        phonetic = re.sub(voiceless + "(" + voiced_obstruent + "+)", voiced + r"\1", phonetic)
 
     # In the sequence of two consonants, of which the second is soft, the first is pronounced soft too
     # unless the first consonant is a labial, namely б, п, в, ф, м.
@@ -244,7 +244,7 @@ def ipa(text: str, check_accent: bool) -> str:
     phonetic = re.sub(r"ʋ([pftskxʃ]+)", r"ʍ\1", phonetic)
 
     # in a syllable-final position (i.e. the first position of a syllable coda) /j/ has an allophone [i̯]:
-    phonetic = re.sub(r"(" + vowel + "+)j([ˈ]?)(" + re.sub(r"ʋ", r"", consonant) + "+)", r"\1i̯\2%3", phonetic)
+    phonetic = re.sub(r"(" + vowel + "+)j([ˈ]?)(" + re.sub(r"ʋ", r"", consonant) + "+)", r"\1i̯\2\3", phonetic)
     phonetic = re.sub(r"(" + vowel + "+)j$", r"\1i̯", phonetic)
     # also at the beginning of a word before a consonant
     phonetic = re.sub(r"^j(" + re.sub(r"ʋ", r"", consonant) + "+)", r"i̯\1", phonetic)
