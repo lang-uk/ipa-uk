@@ -134,6 +134,8 @@ def ipa(text: str, check_accent: bool) -> str:
         r"([йклмнпрстфхцчшщ])\1": r"\1ː",
         r"дждж": r"джː",
         r"дздз": r"дзː",
+        # double vowels:
+        r"уу": r"уː",
     }
 
     phonetic: str = text
@@ -153,7 +155,7 @@ def ipa(text: str, check_accent: bool) -> str:
     # including stress mark for single-syllable words if check_accent is set to true
     number_of_vowels = len(re.findall(r"[ɑɛiɪuɔ]", phonetic))
     if number_of_vowels == 1 and check_accent:
-        phonetic = re.sub(r"([ɑɛiɪuɔ])", r"ˈ\1", phonetic)
+        phonetic = re.sub(r"([ɑɛiɪuo])", r"ˈ\1", phonetic)
 
     # palatalizable consonants before /i/ or /j/ become palatalized
     phonetic = re.sub(r"(" + palatalizable + ")([ː]?)([ˈ]?)i", r"\1ʲ\2\3i", phonetic)
@@ -222,11 +224,12 @@ def ipa(text: str, check_accent: bool) -> str:
     # unstressed /ɑ/ has an allophone [ɐ]
     phonetic = re.sub(r"([^ˈ])ɑ", r"\1ɐ", phonetic)
     phonetic = re.sub(r"^ɑ", r"ɐ", phonetic)
-    # unstressed /u/ has an allophone [ʊ]
-    phonetic = re.sub(r"([^ˈ])u", r"\1ʊ", phonetic)
-    phonetic = re.sub(r"^u", r"ʊ", phonetic)
+    # unstressed /ɔ/ has a stressed allophone [o]
+    phonetic = re.sub(r"(ˈ)ɔ", r"\1o", phonetic)
     # unstressed /ɔ/ has by assimilation an allophone [o] before a stressed syllable with /u/ or /i/
     phonetic = re.sub(r"ɔ([bdzʒɡɦmnlrpftskxʲʃ͡]+)ˈ([uiʊ]+)", r"o\1ˈ\2", phonetic)
+    # unstressed /u/ has an allophone [ʊ]
+    phonetic = re.sub(r"([^ˈ])u", r"\1ʊ", phonetic)
     # one allophone [e] covers unstressed /ɛ/ and /ɪ/
     phonetic = re.sub(r"([^ˈ])ɛ", r"\1e", phonetic)
     phonetic = re.sub(r"^ɛ", r"e", phonetic)
@@ -261,5 +264,9 @@ def ipa(text: str, check_accent: bool) -> str:
 
 
 if __name__ == "__main__":
-    for w in [f"Сла{ACUTE}ва", f"Украї{ACUTE}ні", f"сме{ACUTE}рть", f"ворога{ACUTE}м"]:
+    for w in [f"Сла{ACUTE}ва", f"Украї{ACUTE}ні", f"сме{ACUTE}рть", f"ворога{ACUTE}м",
+              # подвійний "у"
+              f"ва{ACUTE}куум",
+              # "o"
+              f"при{ACUTE}пхнутого", f"поверхово{ACUTE}див", f"електро{ACUTE}нні"]:
         print(w, "->", ipa(w, check_accent=True))
