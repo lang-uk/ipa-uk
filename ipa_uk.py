@@ -10,6 +10,7 @@ the second letter: pass віджжи́лий instead of віджи́лий, пі
 """
 
 import re
+from collections import OrderedDict
 
 __all__ = [
     'AccentIsMissing',
@@ -171,23 +172,23 @@ def ipa(text: str, check_accent: bool) -> str:
     # assimilation: voiceless + voiced = voiced + voiced
     # should /ʋ/ be counted as voiced? According to «Орфоепічний словник»,
     # the assimilation doesn't apply to an initial шв (p. 116)
-    voicing: dict[str, str] = {
-        "p": "b",
-        "f": "v",
-        "t": "d",
-        "tʲ": "dʲ",
-        "s": "z",
-        "sʲ": "zʲ",
-        "ʃ": "ʒ",
-        "k": "ɡ",
-        "x": "ɦ",
-        "t͡s": "d͡z",
-        "t͡sʲ": "d͡zʲ",
-        "t͡ʃ": "d͡ʒ",
-        "ʃt͡ʃ": "ʒd͡ʒ",
-    }
+    voicing: tuple[tuple[str, str], ...] = (
+        ("p", "b"),
+        ("s", "z"),
+        ("t͡sʲ", "d͡zʲ"),
+        ("t", "d"),
+        ("f", "v"),
+        ("ʃt͡ʃ", "ʒd͡ʒ"),
+        ("x", "ɦ"),
+        ("k", "ɡ"),
+        ("ʃ", "ʒ"),
+        ("tʲ", "dʲ"),
+        ("sʲ", "zʲ"),
+        ("t͡ʃ", "d͡ʒ"),
+        ("t͡s", "d͡z"),
+    )
 
-    for voiceless, voiced in voicing.items():
+    for voiceless, voiced in voicing:
         phonetic = re.sub(voiceless + "(" + voiced_obstruent + "+)", voiced + r"\1", phonetic)
 
     # In the sequence of two consonants, of which the second is soft, the first is pronounced soft too
@@ -262,4 +263,6 @@ def ipa(text: str, check_accent: bool) -> str:
 
 if __name__ == "__main__":
     for w in [f"Сла{ACUTE}ва", f"Украї{ACUTE}ні", f"сме{ACUTE}рть", f"ворога{ACUTE}м"]:
+        print(w, "->", ipa(w, check_accent=True))
+    for w in [f"остзе́йці"]:
         print(w, "->", ipa(w, check_accent=True))
