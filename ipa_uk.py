@@ -196,8 +196,6 @@ def ipa(text: str, check_accent: bool) -> str:
         # Till there is no more replacements
         if prev_phonetic == phonetic:
             break
-        else:
-            prev_phonetic = phonetic
 
     # In the sequence of two consonants, of which the second is soft, the first is pronounced soft too
     # unless the first consonant is a labial, namely б, п, в, ф, м.
