@@ -1,0 +1,10 @@
+[project]
+name = "ipa-uk"
+version = "0.0.1"
+
+[tool.setuptools]
+packages = ["ipa_uk"]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
