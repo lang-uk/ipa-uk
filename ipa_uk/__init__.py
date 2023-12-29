@@ -27,7 +27,7 @@ class AccentIsMissing(ValueError):
     pass
 
 
-def ipa(text: str, check_accent: bool) -> str:
+def ipa(text: str, check_accent: bool = False) -> str:
     """
     Returns the IPA transcription of the given word or sentence according to the Wiktionary algorithm
 
