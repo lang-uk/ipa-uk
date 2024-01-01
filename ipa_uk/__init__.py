@@ -13,10 +13,10 @@ import re
 from collections import OrderedDict
 
 __all__ = [
-    'AccentIsMissing',
-    'ACUTE',
-    'GRAVE',
-    'ipa',
+    "AccentIsMissing",
+    "ACUTE",
+    "GRAVE",
+    "ipa",
 ]
 
 ACUTE = chr(0x301)
@@ -24,7 +24,9 @@ GRAVE = chr(0x300)
 
 
 class AccentIsMissing(ValueError):
-    pass
+    """
+    Raised when the provided text is missing an accent (and has more than one syllable)
+    """
 
 
 def ipa(text: str, check_accent: bool = False) -> str:
@@ -43,8 +45,8 @@ def ipa(text: str, check_accent: bool = False) -> str:
         if ACUTE not in text and GRAVE not in text:
             if len(re.findall(r"[аеєиіїоуюя]", text)) > 1:
                 raise AccentIsMissing(
-                    f"The provided text is missing an accent (and has more than one syllable). "
-                    f"Set check_accent=False to disable that check"
+                    "The provided text is missing an accent (and has more than one syllable). "
+                    "Set check_accent=False to disable that check"
                 )
 
     palatalizable: str = r"[tdsznlrbpʋfɡmkɦxʃʒ]"
@@ -178,7 +180,7 @@ def ipa(text: str, check_accent: bool = False) -> str:
         ("t͡sʲ", "d͡zʲ"),
         ("t", "d"),
         ("f", "v"),
-        ("ʃt͡ʃ", "ʒd͡ʒ"), # віщба́
+        ("ʃt͡ʃ", "ʒd͡ʒ"),  # віщба́
         ("x", "ɦ"),
         ("k", "ɡ"),
         ("ʃ", "ʒ"),
@@ -191,7 +193,9 @@ def ipa(text: str, check_accent: bool = False) -> str:
     while True:
         prev_phonetic: str = phonetic
         for voiceless, voiced in voicing:
-            phonetic = re.sub(voiceless + "(" + voiced_obstruent + "+)", voiced + r"\1", phonetic)
+            phonetic = re.sub(
+                voiceless + "(" + voiced_obstruent + "+)", voiced + r"\1", phonetic
+            )
 
         # Till there is no more replacements
         if prev_phonetic == phonetic:
@@ -248,7 +252,11 @@ def ipa(text: str, check_accent: bool = False) -> str:
     phonetic = re.sub(r"ʋ([pftskxʃ]+)", r"ʍ\1", phonetic)
 
     # in a syllable-final position (i.e. the first position of a syllable coda) /j/ has an allophone [i̯]:
-    phonetic = re.sub(r"(" + vowel + "+)j([ˈ]?)(" + re.sub(r"ʋ", r"", consonant) + "+)", r"\1i̯\2\3", phonetic)
+    phonetic = re.sub(
+        r"(" + vowel + "+)j([ˈ]?)(" + re.sub(r"ʋ", r"", consonant) + "+)",
+        r"\1i̯\2\3",
+        phonetic,
+    )
     phonetic = re.sub(r"(" + vowel + "+)j$", r"\1i̯", phonetic)
     # also at the beginning of a word before a consonant
     phonetic = re.sub(r"^j(" + re.sub(r"ʋ", r"", consonant) + "+)", r"i̯\1", phonetic)
@@ -258,8 +266,12 @@ def ipa(text: str, check_accent: bool = False) -> str:
     # moving the stress mark to where it belongs
     phonetic = re.sub(r"([bdzʒɡɦjʲmnlrpftskxʃʋwʍː͡]+)ˈ", r"ˈ\1", phonetic)
     phonetic = re.sub(r"([ui]̯)ˈ([ʲ]?" + vowel + ")", r"ˈ\1\2", phonetic)
-    phonetic = re.sub(r"ˈ(l[ʲ]?[ː]?)(" + re.sub(r"l", r"", consonant) + ")", r"\1ˈ\2", phonetic)
-    phonetic = re.sub(r"ˈ(r[ʲ]?[ː]?)(" + re.sub(r"r", r"", consonant) + ")", r"\1ˈ\2", phonetic)
+    phonetic = re.sub(
+        r"ˈ(l[ʲ]?[ː]?)(" + re.sub(r"l", r"", consonant) + ")", r"\1ˈ\2", phonetic
+    )
+    phonetic = re.sub(
+        r"ˈ(r[ʲ]?[ː]?)(" + re.sub(r"r", r"", consonant) + ")", r"\1ˈ\2", phonetic
+    )
     phonetic = re.sub(r"ˈ(m[ʲ]?[ː]?)([bpfɦszʃʋʒ])", r"\1ˈ\2", phonetic)
     phonetic = re.sub(r"ˈ(n[ʲ]?[ː]?)([dtfkɡɦlxszʃʋʒ])", r"\1ˈ\2", phonetic)
     phonetic = re.sub(r"ʲ?ːʲ", r"ʲː", phonetic)
@@ -270,5 +282,5 @@ def ipa(text: str, check_accent: bool = False) -> str:
 if __name__ == "__main__":
     for w in [f"Сла{ACUTE}ва", f"Украї{ACUTE}ні", f"сме{ACUTE}рть", f"ворога{ACUTE}м"]:
         print(w, "->", ipa(w, check_accent=True))
-    for w in [f"остзе́йці"]:
+    for w in ["остзе́йці"]:
         print(w, "->", ipa(w, check_accent=True))
