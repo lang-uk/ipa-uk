@@ -169,7 +169,7 @@ def ipa(text: str, check_accent: bool = False) -> str:
     # -- There is also a rule т +ц → [цː]. According to «Орфоепічний словник», p. 13,
     # -- both forms are valid, with no lengthening in colloquial speech and with lengthening
     # -- in slow speech, hence ː is enclosed in brackets as optional.
-    phonetic = re.sub(r"st͡sʲ([ː]?)", r"sʲt͡sʲ(\1)", phonetic)
+    phonetic = re.sub(r"st͡sʲ([ː]?)", r"sʲt͡sʲ\1", phonetic)
 
     # assimilation: voiceless + voiced = voiced + voiced
     # should /ʋ/ be counted as voiced? According to «Орфоепічний словник»,
