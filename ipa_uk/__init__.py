@@ -238,11 +238,6 @@ def ipa(text: str, check_accent: bool = False) -> str:
     phonetic = re.sub(r"^u", r"ʊ", phonetic)
     # unstressed /ɔ/ has by assimilation an allophone [o] before a stressed syllable with /u/ or /i/
     phonetic = re.sub(r"ɔ([bdzʒɡɦmnlrpftskxʲʃ͡]+)ˈ([uiʊ]+)", r"o\1ˈ\2", phonetic)
-    # one allophone [e] covers unstressed /ɛ/ and /ɪ/
-    phonetic = re.sub(r"([^ˈ])ɛ", r"\1e", phonetic)
-    phonetic = re.sub(r"^ɛ", r"e", phonetic)
-    phonetic = re.sub(r"([^ˈ])ɪ", r"\1e", phonetic)
-    phonetic = re.sub(r"^ɪ", r"e", phonetic)
 
     # /ʋ/ has an allophone [u̯] in a syllable coda
     phonetic = re.sub(r"(" + vowel + "+)ʋ", r"\1u̯", phonetic)
