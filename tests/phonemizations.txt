@@ -1,0 +1,348 @@
+| pronunciation_secondary_stress
+а̀віаполі́т    accent ˌaʋʲiɐpoˈlʲit
+нѐйробіоло́гія accent ˌnɛi̯rɔbʲiɔˈɫɔɦʲijɐ
+
+| pronunciation_monosyllabic
+бік          accent bʲik
+нема́ за́ що accent neˈma ˈza ʃt͡ʃɔ
+
+| pronunciation_allophones_e_i
+мене́ accent meˈnɛ
+мине́ accent meˈnɛ
+
+| pronunciation_allophones_j
+хай     accent xai̯
+зна́йте accent ˈznai̯te
+ча́йка  accent ˈt͡ʃai̯kɐ
+мій     accent mʲii̯
+йня́ти  accent ˈi̯nʲate
+йод     accent jɔd
+моя́    accent mɔˈja
+мою́    accent mɔˈju
+моє́    accent mɔˈjɛ
+мої́    accent mɔˈji
+
+| pronunciation_allophones_v
+мав     accent mau̯
+був     accent buu̯
+ма́впа  accent ˈmau̯pɐ
+шовк    accent ʃɔu̯k
+вниз    accent wnɪz
+вона́   accent wɔˈna
+ву́хо   accent ˈwuxɔ
+впе́рше accent ˈʍpɛrʃe
+він     accent ʋʲin
+
+| pronunciation_voicing_slovnik_no10
+відділи́ти   accent ʋʲidʲːiˈɫɪte
+надті́сувати accent nɐdʲˈtʲisʊʋɐte
+
+| pronunciation_voicing_slovnik_no6
+боротьба́ accent bɔrɔdʲˈba
+
+| pronunciation_assimilations_slovnik
+ви́рісши     accent ˈʋɪrʲiʃːe
+ви́візши     accent ˈʋɪʋʲiʒʃe
+зши́ти       accent ˈʃːɪte
+зжо́вкнути   accent ˈʒːɔu̯knʊte
+безжа́лісний accent beˈʒːalʲisnei̯
+безче́сний   accent beʒˈt͡ʃɛsnei̯
+зчи́стити    accent ˈʃt͡ʃɪstete
+
+| pronunciation_assimilations_norm
+відсі́ль  accent ʋʲid͡zʲˈsʲilʲ
+два́дцять accent ˈdʋad͡zʲt͡sʲɐtʲ
+ро́биться accent ˈrɔbet͡sʲːɐ
+кори́тця  accent kɔˈrɪt͡sʲːɐ
+
+| pronunciation_phonetic_lengthened_consonants
+знання́   accent znɐˈnʲːa
+рілля́    accent rʲiˈlʲːa
+ті́нню    accent ˈtʲinʲːʊ
+ллю       accent lʲːu
+обби́ти   accent ɔˈbːɪte
+зако́нний accent zɐˈkɔnːei̯
+вітчи́зна accent ʋʲiˈt͡ʃːɪznɐ
+болі́тце  accent boˈlʲit͡sːe
+ви́нісши  accent ˈʋɪnʲiʃːe
+зжува́ти  accent ʒːʊˈʋate
+бере́шся  accent beˈrɛsʲːɐ
+бері́ться accent beˈrʲit͡sʲːɐ
+
+| pronunciation_phonetic_simplification
+студе́нтський accent stʊˈdɛnʲsʲkei̯
+тури́стський  accent tʊˈrɪsʲkei̯
+аге́нтство    accent ɐˈɦɛnstwɔ
+солі́стці     accent soˈlʲisʲt͡sʲ(ː)i
+шістдеся́т    accent ʃʲizdeˈsʲat
+шістсо́т      accent ʃʲiˈsːɔt
+
+| pronunciation_phonetic_consonant_assimilations_Pugh_p36_37_38
+кни́жка      accent ˈknɪʒkɐ
+кни́жці      accent ˈknɪzʲt͡sʲi
+дочка́       accent dɔt͡ʃˈka
+дочці́       accent dɔˈt͡sʲːi
+чита́єш      accent t͡ʃeˈtajeʃ
+сміє́шся     accent sʲmʲiˈjɛsʲːɐ
+до́шка       accent ˈdɔʃkɐ
+до́шці       accent ˈdɔsʲt͡sʲi
+безжа́лісний accent beˈʒːalʲisnei̯
+підрі́сши    accent pʲiˈdʲrʲiʃːe
+кімна́тці    accent kʲimˈnat͡sʲːi
+крава́тці    accent krɐˈʋat͡sʲːi
+неві́стці    accent neˈʋʲisʲt͡sʲ(ː)i
+борі́дці     accent boˈrʲid͡zʲt͡sʲi
+лю́дський    accent ˈlʲud͡zʲsʲkei̯
+# Pugh p. 37 claims that it should be sɔlˈdat͡sʲsʲkɪj, but Орфоепскі словник p. 97 claims otherwise
+солда́тський accent sɔɫˈdat͡sʲkei̯
+
+| pronunciation_phonetic_apostrophe_Pugh_p32
+від'ї́зд  accent ʋʲiˈdjizd
+п'ю       accent pju
+ф'ю́кати  accent ˈfjukɐte
+об'є́кт   accent ɔˈbjɛkt
+п'ять     accent pjatʲ
+здоро́в'я accent zdɔˈrɔʋjɐ
+м'яки́й   accent mjɐˈkɪi̯
+
+| pronunciation_phonetic_Pugh_p29_p30
+ти        accent tɪ
+ті        accent tʲi
+дя́кую    accent ˈdʲakʊjʊ
+сад       accent sad
+сядь      accent sʲadʲ
+пала́ц    accent pɐˈɫat͡s
+хло́пець  accent ˈxɫɔpet͡sʲ
+дзвін     accent d͡zʲʋʲin
+дзво́на   accent ˈd͡zwɔnɐ
+ра́са     accent ˈrasɐ
+ря́са     accent ˈrʲasɐ
+бі́лий    accent ˈbʲiɫei̯
+вів       accent ʋʲiu̯
+кінь      accent kʲinʲ
+шість     accent ʃʲisʲtʲ
+ножі́     accent noˈʒʲi
+уночі́    accent ʊnoˈt͡ʃʲi
+мі́сті    accent ˈmʲisʲtʲi
+одні́й    accent odʲˈnʲii̯
+сніг      accent sʲnʲiɦ
+люблю́    accent lʲʊˈblʲu
+коно́плі  accent kɔˈnɔplʲi
+графля́ть accent ɦrɐˈflʲatʲ
+ко́рмлять accent ˈkɔrmlʲɐtʲ
+
+# If a vowel, an apostrophe, or nothing precedes я, є, ю, then they represent [j] + [a, ɛ, u].
+| pronunciation_phonetic_ja_je_ju
+а́я accent ˈajɐ
+ея́ accent eˈja
+і́я accent ˈijɐ
+ия́ accent eˈja
+о́я accent ˈɔjɐ
+уя́ accent ʊˈja
+а́є accent ˈaje
+еє́ accent eˈjɛ
+і́є accent ˈije
+иє́ accent eˈjɛ
+о́є accent ˈɔje
+ую́ accent ʊˈju
+а́ю accent ˈajʊ
+ею́ accent eˈju
+і́ю accent ˈijʊ
+ию́ accent eˈju
+о́ю accent ˈɔjʊ
+ую́ accent ʊˈju
+'я  noaccent jɐ
+'є  noaccent je
+'ю  noaccent jʊ
+я   noaccent jɐ
+є   noaccent je
+ю   noaccent jʊ
+
+# phonemic and subphonemic weak palatalization.
+| pronunciation_phonetic_softening_ja_je_ji_ju
+# first 12 subphonemic: б п в ф м к г х ж ш ч щ дж ждж
+б    accent b
+бі   noaccent bʲi
+бя   noaccent bʲɐ
+бє   noaccent bʲe
+бю   noaccent bʲʊ
+п    accent p
+пі   noaccent pʲi
+пя   noaccent pʲɐ
+пє   noaccent pʲe
+пю   noaccent pʲʊ
+в    accent ʋ
+ві   noaccent ʋʲi
+вя   noaccent ʋʲɐ
+вє   noaccent ʋʲe
+вю   noaccent ʋʲʊ
+ф    accent f
+фі   noaccent fʲi
+фя   noaccent fʲɐ
+фє   noaccent fʲe
+фю   noaccent fʲʊ
+м    accent m
+мі   noaccent mʲi
+мя   noaccent mʲɐ
+мє   noaccent mʲe
+мю   noaccent mʲʊ
+к    accent k
+кі   noaccent kʲi
+кя   noaccent kʲɐ
+кє   noaccent kʲe
+кю   noaccent kʲʊ
+г    accent ɦ
+гі   noaccent ɦʲi
+гя   noaccent ɦʲɐ
+гє   noaccent ɦʲe
+гю   noaccent ɦʲʊ
+х    accent x
+хі   noaccent xʲi
+хя   noaccent xʲɐ
+хє   noaccent xʲe
+хю   noaccent xʲʊ
+ж    accent ʒ
+жі   noaccent ʒʲi
+жя   noaccent ʒʲɐ
+жє   noaccent ʒʲe
+жю   noaccent ʒʲʊ
+ш    accent ʃ
+ші   noaccent ʃʲi
+шя   noaccent ʃʲɐ
+шє   noaccent ʃʲe
+шю   noaccent ʃʲʊ
+ч    accent t͡ʃ
+чі   noaccent t͡ʃʲi
+чя   noaccent t͡ʃʲɐ
+чє   noaccent t͡ʃʲe
+чю   noaccent t͡ʃʲʊ
+щ    accent ʃt͡ʃ
+щі   noaccent ʃt͡ʃʲi
+щя   noaccent ʃt͡ʃʲɐ
+щє   noaccent ʃt͡ʃʲe
+щю   noaccent ʃt͡ʃʲʊ
+дж   accent d͡ʒ
+джі  noaccent d͡ʒʲi
+джя  noaccent d͡ʒʲɐ
+джє  noaccent d͡ʒʲe
+джю  noaccent d͡ʒʲʊ
+ждж  accent ʒd͡ʒ
+жджі noaccent ʒd͡ʒʲi
+жджя noaccent ʒd͡ʒʲɐ
+жджє noaccent ʒd͡ʒʲe
+жджю noaccent ʒd͡ʒʲʊ
+# 9 phonemic softenings: т д с з ц дз н л
+т    accent t
+ті   noaccent tʲi
+тя   noaccent tʲɐ
+тє   noaccent tʲe
+тю   noaccent tʲʊ
+д    accent d
+ді   noaccent dʲi
+дя   noaccent dʲɐ
+дє   noaccent dʲe
+дю   noaccent dʲʊ
+с    accent s
+сі   noaccent sʲi
+ся   noaccent sʲɐ
+сє   noaccent sʲe
+сю   noaccent sʲʊ
+з    accent z
+зі   noaccent zʲi
+зя   noaccent zʲɐ
+зє   noaccent zʲe
+зю   noaccent zʲʊ
+ц    accent t͡s
+ці   noaccent t͡sʲi
+ця   noaccent t͡sʲɐ
+цє   noaccent t͡sʲe
+цю   noaccent t͡sʲʊ
+дз   accent d͡z
+дзі  noaccent d͡zʲi
+дзя  noaccent d͡zʲɐ
+дзє  noaccent d͡zʲe
+дзю  noaccent d͡zʲʊ
+н    accent n
+ні   noaccent nʲi
+ня   noaccent nʲɐ
+нє   noaccent nʲe
+ню   noaccent nʲʊ
+л    accent ɫ
+лі   noaccent lʲi
+ля   noaccent lʲɐ
+лє   noaccent lʲe
+лю   noaccent lʲʊ
+р    accent r
+рі   noaccent rʲi
+ря   noaccent rʲɐ
+рє   noaccent rʲe
+рю   noaccent rʲʊ
+
+| pronunciation_phonetic_hard_soft_sign
+т   accent t
+ть  accent tʲ
+д   accent d
+дь  accent dʲ
+с   accent s
+сь  accent sʲ
+з   accent z
+зь  accent zʲ
+ц   accent t͡s
+ць  accent t͡sʲ
+дз  accent d͡z
+дзь accent d͡zʲ
+н   accent n
+нь  accent nʲ
+л   accent ɫ
+ль  accent lʲ
+п   accent p
+пь  accent pʲ
+
+| pronunciation_phonetic_dual_pronunciation_prefix_bez_roz
+розписа́ти  accent rɔzpeˈsate
+росписа́ти  accent rɔspeˈsate
+безпла́тний accent bezˈpɫatnei̯
+беспла́тний accent beˈspɫatnei̯
+
+| pronunciation_phonetic_assimilation_voiceless_voiced
+вокза́л   accent wɔɡˈzaɫ
+якби́     accent jɐɡˈbɪ
+молотьба́ accent mɔɫɔdʲˈba
+анекдо́т  accent ɐneɡˈdɔt
+при       accent prɪ
+
+| pronunciation_phonetic_basic
+ходжу́    accent xoˈd͡ʒu
+джи́нси   accent ˈd͡ʒɪnse
+дзе́ркало accent ˈd͡zɛrkɐɫɔ
+дзво́ник  accent ˈd͡zwɔnek
+дзьоб     accent d͡zʲɔb
+агре́сія  accent ɐˈɦrɛsʲijɐ
+шви́дше   accent ˈʃʋɪd͡ʒʃe
+ї́жте     accent ˈjiʒte
+ро́зталь  accent ˈrɔztɐlʲ
+шви́дко   accent ˈʃʋɪdkɔ
+ніж       accent nʲiʒ
+ри́бка    accent ˈrɪbkɐ
+ка́зка    accent ˈkazkɐ
+ка́ска    accent ˈkaskɐ
+залюбки́  accent zɐlʲʊbˈkɪ
+мед       accent mɛd
+# must be rʲ, error in the book p. 26
+скрізь    accent skrʲizʲ
+# word-initial stressed vowel; formerly not handled correctly
+О́сло     accent ˈɔsɫɔ
+
+| pronunciation_phonetic_diphonemic_dz_dzh_dsh_dch
+піджжива́ти   accent pʲid͡ʒʒeˈʋate
+віджжи́лий    accent ʋʲid͡ʒˈʒɪɫei̯
+підззе́мний   accent pʲid͡zˈzɛmnei̯
+підззира́ти   accent pʲid͡zzeˈrate
+відшу́кувати  accent ʋʲid͡ʒˈʃukʊʋɐte
+відчуття́     accent ʋʲid͡ʒt͡ʃʊˈtʲːa
+відці́джувати accent ʋʲid͡zʲˈt͡sʲid͡ʒʊʋɐte
+відцвіта́ти   accent ʋʲid͡zt͡sʲʋʲiˈtate
+
+| pronunciation_multiword_expressions
+# initial stress in a medial word formerly not handled correctly
+Сполу́чені Шта́ти Аме́рики accent spoˈɫut͡ʃenʲi ˈʃtate ɐˈmɛreke

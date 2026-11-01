@@ -369,7 +369,4 @@ def test_pronunciation_phonetic_diphonemic_dz_dzh_dsh_dch():
 
 def test_pronunciation_multiword_expressions():
     # initial stress in a medial word formerly not handled correctly
-    assert (
-        ipa("Сполу́чені Шта́ти Аме́рики", check_accent=True)
-        == "spoˈɫut͡ʃenʲi ˈʃtate ɐˈmɛreke"
-    )
+    assert ipa("Сполу́чені Шта́ти Аме́рики", check_accent=True) == "spoˈɫut͡ʃenʲi ˈʃtate ɐˈmɛreke"
